@@ -1,8 +1,54 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Hind", sans-serif;
+  background-color: #d3d8d9;
+  color: #222;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  font-family: "Hind", sans-serif;
+  font-weight: 300;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Hind", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+}
+
+a,
+a:visited {
+  color: #4a6e8a;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #222;
+  text-decoration: underline;
 }

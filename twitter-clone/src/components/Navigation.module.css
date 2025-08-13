@@ -1,0 +1,34 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  flex: 1;
+}
+
+.loggedInUser {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loggedInUserName {
+  font-size: 2.5rem;
+  font-weight: 200;
+}
+
+.loggedInUserInitials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  background-color: rgb(236, 236, 236);
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  font-weight: 300;
+}

@@ -1,9 +1,13 @@
 import { Outlet } from "react-router";
+import Navigation from "../components/Navigation";
 
 const AuthLayout = () => {
   return (
     <div>
-      AuthLayout
+      <header>
+        <Navigation />
+      </header>
+
       <Outlet />
     </div>
   );
