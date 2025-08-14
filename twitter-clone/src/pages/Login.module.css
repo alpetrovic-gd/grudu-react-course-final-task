@@ -26,10 +26,10 @@
 }
 
 .formRow {
-  margin-bottom: 1.5rem;
   display: flex;
-  gap: 1rem;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .formRow:last-of-type {
@@ -45,6 +45,11 @@
   background: #d3d8d9;
   box-shadow: inset 3px 3px 7px #b3b8b8, inset -3px -3px 7px #f3f8fa;
   transition: box-shadow 0.2s ease-in-out;
+}
+
+.inputInvalid,
+.inputInvalid:focus {
+  outline: 2px solid orangered;
 }
 
 .button {
@@ -64,4 +69,15 @@
   font-size: 1.3rem;
   margin: 5rem 0 0;
   text-align: center;
+}
+
+.error {
+  color: orangered;
+  font-size: 1.2rem;
+  align-self: flex-start;
+  margin: 0 0 0 1.5rem;
+}
+
+.hidden {
+  visibility: hidden;
 }
