@@ -1,30 +1,28 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import classes from "./Login.module.css";
 import { useState } from "react";
-import * as EmailValidator from "email-validator";
 import { passwordValidation } from "../utils/validation";
 
 type LoginInfoType = {
-  email: string;
+  username: string;
   password: string;
 };
-type PossibleErrorsType = keyof LoginInfoType;
+type PossibleErrorsType = "password";
 
 const Login = () => {
+  let navigate = useNavigate();
+
   const [loginInfo, setLoginInfo] = useState<LoginInfoType>({
-    email: "",
+    username: "",
     password: "",
   });
   const [errors, setErrors] = useState<PossibleErrorsType[]>([]);
+  const [mainErrorMessage, setMainErrorMessage] = useState("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const newErrors: PossibleErrorsType[] = [];
-
-    if (!EmailValidator.validate(loginInfo.email)) {
-      newErrors.push("email");
-    }
 
     if (!passwordValidation(loginInfo.password)) {
       newErrors.push("password");
@@ -36,7 +34,28 @@ const Login = () => {
       return;
     }
 
-    console.log(loginInfo);
+    const response = await fetch(
+      `http://localhost:3001/users/${loginInfo.username}`
+    );
+
+    if (!response.ok) {
+      setMainErrorMessage(
+        response.status === 404
+          ? "User with the given username was not found"
+          : "Something went wrong"
+      );
+      return;
+    }
+
+    const user = await response.json();
+    if (user.password !== loginInfo.password) {
+      setMainErrorMessage("Password was incorrect");
+      return;
+    }
+
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+    navigate("/");
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,27 +74,21 @@ const Login = () => {
   return (
     <div className={classes.container}>
       <h2 className={classes.title}>Log In</h2>
+      <p className={classes.errorMessage}>{mainErrorMessage}</p>
+
       <form onSubmit={handleSubmit} className={classes.form}>
         <div className={classes.formRow}>
           <input
-            id="email"
-            name="email"
-            className={`${classes.input}${
-              errors.includes("email") ? ` ${classes.inputInvalid}` : ""
-            }`}
-            type="email"
-            placeholder="Email"
+            id="username"
+            name="username"
+            className={classes.input}
+            type="text"
+            placeholder="Username"
             autoComplete="off"
             onChange={handleInputChange}
-            value={loginInfo.email}
+            value={loginInfo.username}
           />
-          <p
-            className={`${classes.error}${
-              !errors.includes("email") ? ` ${classes.hidden}` : ""
-            }`}
-          >
-            Invalid email
-          </p>
+          <p className={`${classes.error} ${classes.hidden}`}>Invalid email</p>
         </div>
 
         <div className={classes.formRow}>
