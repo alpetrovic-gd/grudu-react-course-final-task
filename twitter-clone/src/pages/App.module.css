@@ -1,0 +1,49 @@
+.container {
+  width: 50%;
+  border-radius: 50px;
+  background: #d3d8d9;
+  box-shadow: 10px 10px 40px #b3b8b8, -10px -10px 40px #f3f8fa;
+  margin: 10rem auto 0;
+  padding: 5rem;
+}
+
+.tweetTextarea {
+  width: 100%;
+  min-height: 10rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 0.8rem;
+  background: #d3d8d9;
+  box-shadow: inset 3px 3px 10px #b3b8b8, inset -3px -3px 10px #f3f8fa;
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 300;
+  resize: none;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweetTextarea:focus {
+  outline: none;
+  box-shadow: inset 3px 3px 5px #b3b8b8, inset -3px -3px 5px #f3f8fa;
+}
+
+.button {
+  padding: 0.6rem 2.2rem;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #bec2c3, #e2e7e8);
+  box-shadow: 5px 5px 18px #b3b8b8, -5px -5px 18px #f3f8fa;
+  align-self: flex-end;
+  transition: box-shadow 0.07s ease-in-out;
+  align-self: flex-end;
+  margin: 2rem 0 4rem;
+}
+
+.button:active {
+  box-shadow: 2px 2px 5px #b3b8b8, -2px -2px 5px #f3f8fa;
+}

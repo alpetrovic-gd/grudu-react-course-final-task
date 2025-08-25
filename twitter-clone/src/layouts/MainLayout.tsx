@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
 import Navigation from "../components/Navigation";
 
-const AuthLayout = () => {
+const MainLayout = () => {
   return (
     <div>
       <header>
@@ -13,4 +13,4 @@ const AuthLayout = () => {
   );
 };
 
-export default AuthLayout;
+export default MainLayout;

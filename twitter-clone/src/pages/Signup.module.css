@@ -1,0 +1,89 @@
+.container {
+  font-weight: 300;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 4rem 6rem;
+  border-radius: 50px;
+  background: #d3d8d9;
+  box-shadow: 20px 20px 60px #b3b8b8, -20px -20px 60px #f3f8fa;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 3rem;
+  margin-top: 0;
+}
+
+.label {
+  font-size: 1.7rem;
+  font-weight: 200;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.formRow:last-of-type {
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  border: none;
+  border-radius: 0.8rem;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  min-width: 25rem;
+  background: #d3d8d9;
+  box-shadow: inset 3px 3px 7px #b3b8b8, inset -3px -3px 7px #f3f8fa;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.inputInvalid,
+.inputInvalid:focus {
+  outline: 2px solid orangered;
+}
+
+.button {
+  padding: 0.6rem 2.2rem;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #bec2c3, #e2e7e8);
+  box-shadow: 5px 5px 27px #b3b8b8, -5px -5px 27px #f3f8fa;
+  align-self: flex-end;
+  transition: box-shadow 0.07s ease-in-out;
+}
+
+.button:active {
+  box-shadow: 2px 2px 5px #b3b8b8, -2px -2px 5px #f3f8fa;
+}
+
+.loginMessage {
+  font-size: 1.3rem;
+  margin: 5rem 0 0;
+  text-align: center;
+}
+
+.error {
+  color: orangered;
+  font-size: 1.2rem;
+  align-self: flex-start;
+  margin: 0 0 0 1.5rem;
+}
+
+.errorMessage {
+  color: orangered;
+  font-size: 1.4rem;
+  margin: 0 0 2rem;
+}
+
+.hidden {
+  visibility: hidden;
+}

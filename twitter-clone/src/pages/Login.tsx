@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router";
 import classes from "./Login.module.css";
 import { useState } from "react";
-import { passwordValidation } from "../utils/validation";
+import { lengthValidation } from "../utils/validation";
 
 type LoginInfoType = {
   username: string;
@@ -24,7 +24,7 @@ const Login = () => {
 
     const newErrors: PossibleErrorsType[] = [];
 
-    if (!passwordValidation(loginInfo.password)) {
+    if (!lengthValidation(loginInfo.password, 256, 8)) {
       newErrors.push("password");
     }
 
